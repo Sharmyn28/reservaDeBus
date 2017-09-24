@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Reserva</title>
+	<link href="assets/css/main.css" rel="stylesheet" type="text/css">
+</head>
+<body bgcolor="lightsalmon">
+	<font face="Century Gothic">
+		<h1 align="center">Reserva de Asientos</h1>
+
+		<table id="asientos" align="center" border="1px">
+			<tr>
+				<td>04</td><td>08</td><td>12</td><td>16</td><td>20</td><td>24</td><td>28</td><td>32</td>
+			</tr>
+			<tr>
+				<td>03</td>	<td>07</td><td>11</td><td>15</td><td>19</td><td>23</td><td>27</td><td>31</td>
+			</tr>
+			<tr></tr>
+			<tr></tr>
+			<tr></tr>
+			<tr></tr>
+			<tr></tr>
+			<tr></tr>
+			<tr>
+				<td>02</td><td>06</td><td>10</td><td>14</td><td>18</td><td>22</td><td>26</td><td>30</td>
+			</tr>
+			<tr>
+				<td>01</td><td>05</td><td>09</td><td>13</td><td>17</td><td>21</td><td>25</td><td>29</td>
+			</tr>
+		</table><br>
+		
+		<div id="mostrar" align="center">Seleccione asiento</div><br>
+
+		<div align="center">
+			<label for="btnBuscar">DNI</label>
+			<input type="text" name="dniBuscar" id="dniBuscar" size="8">
+			<button id="btnBuscar" onclick="buscar()">BUSCAR</button>
+		</div><br>
+
+		<div id="registro" align="center">
+			<input type="text" name="nombre" placeholder="Nombre" id="nombre" required="required"><br><br>
+			<input type="text" name="apellido" placeholder="Apellido" id="apellido" required="required"><br><br>
+			<input type="text" name="dni" placeholder="DNI" size="8" id="dni" required="required"><br><br>
+		</div>
+
+	</font>
+	
+	<div align="center">
+		<button id="btnReservar" onclick="reservar()">RESERVAR</button>
+		<button id="btnCancelar">CANCELAR</button><br><br>
+		<button id="btnListar" onclick="listar()">LISTAR</button>
+	</div>
+	
+	<font face="Century Gothic">
+		<div id="resultado" align="center"></div>
+	</font>
+	
+	<script type="text/javascript" src="assets/js/main.js"></script>
+</body>
+</html>
