@@ -30,30 +30,30 @@
 			</tr>
 		</table><br>
 		
-		<div id="mostrar" align="center">Seleccione asiento</div><br>
+		<div id="showPlace" align="center">Seleccione asiento</div><br>
 
 		<div align="center">
-			<label for="btnBuscar">DNI</label>
-			<input type="text" name="dniBuscar" id="dniBuscar" size="8">
-			<button id="btnBuscar" onclick="buscar()">BUSCAR</button>
+			<label for="btnSearch">DNI</label>
+			<input type="text" name="dniSearch" id="dniSearch" size="8" maxlength="8">
+			<button id="btnSearch">BUSCAR</button>
 		</div><br>
 
 		<div id="registro" align="center">
-			<input type="text" name="nombre" placeholder="Nombre" id="nombre" required="required"><br><br>
-			<input type="text" name="apellido" placeholder="Apellido" id="apellido" required="required"><br><br>
-			<input type="text" name="dni" placeholder="DNI" size="8" id="dni" required="required"><br><br>
+			<input type="text" name="name" placeholder="Name" id="name" required="required"><br><br>
+			<input type="text" name="lastname" placeholder="Lastname" id="lastname" required="required"><br><br>
+			<input type="text" name="dni" placeholder="DNI" size="8" id="dni" required="required" maxlength="8"><br><br>
 		</div>
 
 	</font>
 	
 	<div align="center">
-		<button id="btnReservar">RESERVAR</button>
-		<button id="btnCancelar">CANCELAR</button><br><br>
-		<button id="btnListar">LISTAR</button>
+		<button id="btnReservation">RESERVAR</button>
+		<button id="btnCancel">CANCELAR</button><br><br>
+		<button id="btnShow">LISTAR</button>
 	</div>
 	
 	<font face="Century Gothic">
-		<div id="resultado" align="center"></div>
+		<div id="result" align="center"></div>
 	</font>
 	
 	<script src="assets/js/jquery-3.2.1.min.js"></script>
