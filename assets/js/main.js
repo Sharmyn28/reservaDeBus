@@ -41,7 +41,11 @@ class Bus{
 		var name = document.getElementById("nombre").value;
 		var apellido = document.getElementById("apellido").value;
 		var dni = document.getElementById("dni").value;
-		var asiento = this.seat;
+		let mostrar = document.getElementById("mostrar");
+		let mos = mostrar.outerText;
+		console.log(mos)
+		let res = mos.split('Seleccionó el asiento ');
+		var asiento = res[1];
 	
 		function Pasajero(nombre, apellido, dni, asiento){
 			this.nombre = nombre;
