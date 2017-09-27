@@ -26,6 +26,12 @@ class Bus{
 	getPassengerList() {
 		return passenger;
 	}
+
+	showForm(){
+		$('#flight_details').hide();
+		$('#upgrade').addClass("complete");
+		$('#passenger_info').removeAttr("hidden");
+	}
 	makeReservation(name, apellido, dni, asiento){	
 		let mostrar = document.getElementById("showPlace");
 		let mos = mostrar.textContent;
@@ -41,11 +47,26 @@ class Bus{
 	
 		let newPassenger = new Passenger(name, apellido, dni, asiento);
 		this.passenger.push(newPassenger);
+		$('#flight_details').hide();
+		$('#passenger_info').hide();
+		$('#payment_details').hide();
 		this.toHTML(newPassenger)
-		setTimeout(()=>{ this.restart(); }, 3000);
+		setTimeout(()=>{ this.restart(); 
+			$('#ticket').empty();
+		}, 45000);
 	}
 
-	search(){
+	pay(){
+		$('#payment').addClass("complete");
+		$('#payment_details').removeAttr("hidden");
+		$('#passenger_info').hide();
+		setTimeout(()=>{ this.restart();
+			$('#finish').addClass("complete");
+			$('#flight_details').show();
+		}, 1000);
+	}
+
+	searchPassenger(){
 		let dniSearch = $("#dniSearch").val();
 		dniSearch = parseInt(dniSearch);
 		let foundID;
@@ -63,12 +84,31 @@ class Bus{
 	}
 
 	toHTML(pasaj) {
-		$('#result').append(`<div class='lista' align='center'>\
-								<strong>Nombre: </strong>${pasaj.name}<br>\
-								<strong>Apellido: </strong>${pasaj.lastname}<br>\
-								<strong>DNI: </strong>${pasaj.dni}<br>\
-								<strong>Asiento: </strong> ${pasaj.asiento}\
-							</div>`);
+		$('#ticket').append(`<article class="ticket">\
+								<section class="date-ticket">\
+									<time datetime="27th sept">\
+										<span>27</span><span>Sept</span>\
+									</time>\
+								</section>\
+								<section class="ticket-cont">\
+									<small>small airline</small>\
+									<h3 id="place_namePassenger">${pasaj.name}  ${pasaj.lastname}</h3>\
+									<p>DNI ${pasaj.dni}</p>\
+									<div class="even-date">\
+										<i class="fa fa-calendar"></i>\
+										<time>\
+											<p>friday 29 september 2017 &nbsp;&nbsp;</p>\
+											<p>9 am</p>\
+										</time>\
+									</div>\
+									<div class="even-info">\
+										<i class="fa fa-map-marker"></i>\
+										<p>Jorge Chavez International Airport, LIMA</p>\
+										<p>GATE 8 </p>\
+										<p>SEAT  ${pasaj.asiento}</p>\
+									</div>\
+								</section>\
+							</article>`);
 	}
 
 	showList(){
@@ -89,7 +129,9 @@ class Bus{
 		}
 		$('#btnReservation').click( () => this.makeReservation());
 		$('#btnShow').click( () => this.showList());
-		$('#btnSearch').click( () => this.search());
+		$('#btnSearch').click( () => this.searchPassenger());
+		$('#btn_next').click( () => this.showForm());
+		$('#btn_pay').click( () => this.pay());
 	}
 }
 
