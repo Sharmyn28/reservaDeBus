@@ -1,3 +1,8 @@
+body{
+  background-color: rgba(207, 236, 228, 0.64) !important;
+  /*background-image: url(../imag/pic-cover.png);
+  background-repeat: no-repeat;*/
+}
 
 .lista {
   background: #7FB3D5;
@@ -7,7 +12,7 @@
   font-family:"Century Gothic";
 }
 
-button{
+.button_form{
   background-color: #16A085;
   border: 2px;
   border-radius: 5px;
@@ -17,4 +22,486 @@ button{
   font-size: 18px;
   font-weight: bold;
   font-family:"Century Gothic";
+}
+
+.logo_img{
+  width: 25%;
+}
+/*-------PROGRESS BAR------*/
+.navbar {
+  margin-bottom: 0 !important;
+}
+
+ul.progress {
+  align-items: center;
+  display: flex;
+  font-family: verdana;
+  height: 100%;
+  justify-content: space-around;
+  list-style: none;
+  margin: 0;
+  min-height: 10em;
+  padding-left: 0;
+  width: 100%;
+}
+
+ul.progress li {
+  flex-grow: 1;
+  position: relative;
+  text-align: center;
+}
+
+ul.progress li:before {
+  background-color: #eee;
+  border: 0.2em solid #666;
+  border-radius: 50%;
+  content: "";
+  display: block;
+  font-family: FontAwesome;
+  line-height: 5em;
+  margin: 1em auto;
+  width: 5em;
+}
+
+ul.progress li#select:before {
+  content: "\f274";
+}
+
+ul.progress li#upgrade:before {
+  content: "\f2c0";
+}
+
+ul.progress li#payment:before {
+  content: "\f09d";
+}
+
+ul.progress li#finish:before {
+  content: "\f00c";
+}
+
+ul.progress li:after {
+  background-color: #666;
+  content: "";
+  height: 0.2em;
+  left: 50%;
+  position: absolute;
+  top: 3.5em;
+  width: 100%;
+  z-index: -1;
+}
+
+ul.progress li.complete {
+  color: #41A821;
+}
+
+ul.progress li.complete:before {
+  border-color: #41A821;
+}
+
+ul.progress li.complete:after {
+  background-color: #41A821;
+}
+
+ul.progress li:last-child:after {
+  content: none;
+}
+
+/*-------FLIGHT DETAILS------*/
+
+.input-flight {
+  margin-bottom: 20px;
+}
+
+fieldset {
+  min-width: 0;
+  padding: 0;
+  margin: 0;
+  border: 0;
+}
+/*-------PASSENGER INFO------*/
+
+
+/*-------MAKE PAYMENT------*/
+
+  #card-container.flip .card {
+    transform: rotateY(180deg);
+  }
+    .card-back {
+      opacity:1;
+      visibility:visible;
+    }
+   
+  .card {
+    display:inline-block;
+    background: linear-gradient(135deg,      #37456C 0%,#2F397A 100%);
+    width:390px;
+    height:246px;
+    border-radius:10px;
+    margin:20px;
+    overflow:hidden;
+    border:1px solid #aaa;
+    padding:20px;
+    box-shadow:1px 2px 4px black;
+    font-family:"courier", monospace;
+    box-sizing:border-box;
+    position:relative;
+    transition:0.4s ease all;
+  	transform-style: preserve-3d;
+    z-index:1;
+  }  
+    .card-back {
+      background: linear-gradient(135deg,      rgba(55,69,108,0.8) 0%, rgba(47,57,122,0.8) 100%);
+      visibility:hidden;
+      transform: rotateY(180deg);
+      color:white;
+      transition:0.8s ease all;
+      opacity:0;
+      position:absolute;
+      top:0;
+      bottom:0;
+      right:0;
+       left:0;
+    }
+      .black {
+        height:40px;
+        background-color:black;
+        margin-top:20px;
+      }
+      
+      .sign{
+        display:block;
+        width:83%;
+        margin:20px;
+        background-color:white;
+        color: black;
+        padding: 5px;
+        font-family:"Homemade Apple";
+        padding-left:20px;
+        border-radius:1px;
+        position:relative;
+      }
+      
+      .cvc-start{
+        position:absolute;
+        right:2px;
+        top:2px;
+        display:block;
+        background-color:rgba(255,255,255,0);
+        font-family:"Courier", Monospace;
+        font-size:0.8em;
+        letter-spacing:0.2em;
+      }
+      
+      #cvc {
+        background-color:rgba(240,240,240,1);
+        width:100px;
+        color:black;
+        text-shadow:none;
+        font-size:0.8em;
+      }
+      
+    .chip {
+      width:40px;
+      margin-top:50px;
+    }
+    
+    .payment-title{
+      font-family:"Helvetica Neue", Arial;
+      font-weight:800;
+      color:white;
+      text-shadow:0 1px 2px black;
+      position:absolute;
+      left:20px;
+      top:20px;
+    }
+    
+    .payment-card{
+      width:30px;
+      position:absolute;
+      right:15px;
+      top:10px;
+      opacity:0;
+      transition:0.4s ease all;
+    } 
+      .active-card{
+        opacity:1;
+      }
+    
+    
+    .front .field {
+      left:20px;
+      position:absolute;
+    }
+    
+    .field {
+      background-color:rgba(255,255,255,0.2);
+      border-bottom:1px dotted #eee!important;
+      border:0px;
+      padding:5px;
+      color:white;
+      font-size:0.8em;
+      text-shadow:0 1px 2px black;
+      transition:0.4s ease all;
+      text-transform:uppercase;
+    } 
+      .active-card-field {
+        background-color:rgba(255,255,255,0);
+        border-bottom:0px!important;
+        letter-spacing:0.2em;
+      }
+    
+    #name_card {
+      bottom:60px;
+      width:50%;
+    }
+    
+    #date_card {
+      bottom:20px;
+      width:20%;
+    }
+    
+    #number_card {
+      bottom:100px;
+      width:86%;
+    }
+
+.confirm-payment {
+  width:50%;
+  padding:20px;
+  background-color:#f5f5f5;
+  display:inline-block;
+  position:absolute;
+  right:0px;
+  bottom:0px;
+  top:0px;
+}  
+  .content_payment{
+    position:absolute;
+    right:200px;
+    bottom:45px;
+    font-weight:800;
+    background-color:white;
+    box-shadow:0 1px 2px black;
+    width:200px;
+    height:200px;
+    opacity:0;
+    visibility:hidden;
+    transition:0.4s ease all;
+  }  
+    .active-card-content{
+      right:20px;
+      opacity:1;
+      visibility:visible;
+    }
+    
+    .span_card {
+      padding-left:100px;
+      padding-top:10px;
+      display:block;
+    }
+    
+    .img_card {
+      width:30px;
+    }
+  
+  
+    .btn_pay {
+    float:right;
+    border-radius:3px;
+    position:absolute;
+    right:20px;
+    bottom:20px;
+    border:0px;
+    box-shadow:0 1px 2px black;
+    background-color:#334359;
+    color:white;
+    padding:10px;
+    text-shadow:0 1px 2px black;
+  }
+
+
+#card-container {
+  position:relative;
+}
+
+/*-------TICKETS------*/
+@import url('https://fonts.googleapis.com/css?family=Oswald');
+.fl-left{float: left}
+
+.fl-right{float: right}
+
+#ticket{
+  margin: 0 15%;
+}
+.container-ticket
+{
+  width: 90%;
+  margin: 100px auto;
+}
+
+.row-ticket{overflow: hidden}
+
+.ticket
+{
+  display: table-row;
+  width: 49%;
+  background-color: #fff;
+  color: #989898;
+  margin-bottom: 10px;
+  font-family: 'Oswald', sans-serif;
+  text-transform: uppercase;
+  border-radius: 4px;
+  position: relative;
+}
+
+.ticket + .ticket{margin-left: 2%}
+
+.date-ticket
+{
+  display: table-cell;
+  width: 25%;
+  position: relative;
+  text-align: center;
+  border-right: 2px dashed #dadde6
+}
+
+.date-ticket:before,
+.date-ticket:after
+{
+  content: "";
+  display: block;
+  width: 30px;
+  height: 30px;
+  background-color: #DADDE6;
+  position: absolute;
+  top: -15px ;
+  right: -15px;
+  z-index: 1;
+  border-radius: 50%
+}
+
+.date-ticket:after
+{
+  top: auto;
+  bottom: -15px
+}
+
+.date-ticket time
+{
+  display: block;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  -webkit-transform: translate(-50%, -50%);
+  -ms-transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%)
+}
+
+.date-ticket time span{display: block}
+
+.date-ticket time span:first-child
+{
+  color: #2b2b2b;
+  font-weight: 600;
+  font-size: 250%
+}
+
+.date-ticket time span:last-child
+{
+  text-transform: uppercase;
+  font-weight: 600;
+  margin-top: -10px
+}
+
+.ticket-cont
+{
+  display: table-cell;
+  width: 75%;
+  font-size: 85%;
+  padding: 10px 10px 30px 50px
+}
+
+.ticket-cont h3
+{
+  color: #3C3C3C;
+  font-size: 130%
+}
+
+.row-ticket:last-child .card:last-of-type .ticket-cont h3
+{
+  text-decoration: line-through
+}
+
+.ticket-cont > div
+{
+  display: table-row
+}
+
+.ticket-cont .even-date i,
+.ticket-cont .even-info i,
+.ticket-cont .even-date time,
+.ticket-cont .even-info p
+{
+  display: table-cell
+}
+
+.ticket-cont .even-date i,
+.ticket-cont .even-info i
+{
+  padding: 5% 5% 0 0
+}
+
+.ticket-cont .even-info p
+{
+  padding: 30px 50px 0 0
+}
+
+.ticket-cont .even-date time p
+{
+  display: inline-block;
+}
+
+.ticket-cont a
+{
+  display: block;
+  text-decoration: none;
+  width: 80px;
+  height: 30px;
+  background-color: #D8DDE0;
+  color: #fff;
+  text-align: center;
+  line-height: 30px;
+  border-radius: 2px;
+  position: absolute;
+  right: 10px;
+  bottom: 10px
+}
+
+.row-ticket:last-child .ticket:first-child .ticket-cont a
+{
+  background-color: #037FDD
+}
+
+.row-ticket:last-child .ticket:last-child .ticket-cont a
+{
+  background-color: #F8504C
+}
+
+@media screen and (max-width: 860px)
+{
+  .ticket
+  {
+    display: block;
+    float: none;
+    width: 100%;
+    margin-bottom: 10px
+  }
+  
+  .ticket + .ticket{margin-left: 0}
+  
+  .ticket-cont .even-date,
+  .ticket-cont .even-info
+  {
+    font-size: 75%
+  }
 }

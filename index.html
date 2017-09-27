@@ -1,62 +1,229 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
 	<meta charset="UTF-8">
-	<title>Reserva</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Flight Booking</title>
 	<link href="assets/css/main.css" rel="stylesheet" type="text/css">
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 </head>
-<body bgcolor="lightsalmon">
-	<font face="Century Gothic">
-		<h1 align="center">Reserva de Asientos</h1>
 
-		<table id="spot" align="center" border="1px">
-			<tr>
-				<td>04</td><td>08</td><td>12</td><td>16</td><td>20</td><td>24</td><td>28</td><td>32</td>
-			</tr>
-			<tr>
-				<td>03</td>	<td>07</td><td>11</td><td>15</td><td>19</td><td>23</td><td>27</td><td>31</td>
-			</tr>
-			<tr></tr>
-			<tr></tr>
-			<tr></tr>
-			<tr></tr>
-			<tr></tr>
-			<tr></tr>
-			<tr>
-				<td>02</td><td>06</td><td>10</td><td>14</td><td>18</td><td>22</td><td>26</td><td>30</td>
-			</tr>
-			<tr>
-				<td>01</td><td>05</td><td>09</td><td>13</td><td>17</td><td>21</td><td>25</td><td>29</td>
-			</tr>
-		</table><br>
-		
-		<div id="showPlace" align="center">Seleccione asiento</div><br>
+<body>
+	<nav class="navbar navbar-default">
+		<div class="container-fluid">
+			<div class="navbar-header">
+				<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1"
+				 aria-expanded="false">
+				  <span class="sr-only">Toggle navigation</span>
+				  <span class="icon-bar"></span>
+				  <span class="icon-bar"></span>
+				  <span class="icon-bar"></span>
+				</button>
+				<a class="navbar-brand" href="#"><img class="logo_img" src="assets/imag/logo1.png" alt=""></a>
+			</div>
 
-		<div align="center">
-			<label for="btnSearch">DNI</label>
-			<input type="text" name="dniSearch" id="dniSearch" size="8" maxlength="8">
-			<button id="btnSearch">BUSCAR</button>
-		</div><br>
-
-		<div id="registro" align="center">
-			<input type="text" name="name" placeholder="Name" id="name" required="required"><br><br>
-			<input type="text" name="lastname" placeholder="Lastname" id="lastname" required="required"><br><br>
-			<input type="text" name="dni" placeholder="DNI" size="8" id="dni" required="required" maxlength="8" minlength="8"><br><br>
+			<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+				<ul class="nav navbar-nav">
+					<li class="active"><a href="#">Book your flight<span class="sr-only">(current)</span></a></li>
+					<li><a href="#">Cancel Flight</a></li>
+					<li><a href="#" id="btnShow">Passenger List</a></li>
+				</ul>
+				<form class="navbar-form navbar-left">
+					<div class="form-group">
+						<input type="text" name="dniSearch" id="dniSearch" class="form-control" placeholder="ID Search" size="8" maxlength="8">
+					</div>
+					<button type="submit" class="btn btn-default" id="btnSearch">Submit</button>
+				</form>
+				<ul class="nav navbar-nav navbar-right">
+					<li><a href="#"><button type="submit" class="btn btn-default">Sign In</button></a></li>
+				</ul>
+			</div>
 		</div>
+	</nav>
 
-	</font>
-	
-	<div align="center">
-		<button id="btnReservation">RESERVAR</button>
-		<button id="btnCancel">CANCELAR</button><br><br>
-		<button id="btnShow">LISTAR</button>
-	</div>
-	
-	<font face="Century Gothic">
-		<div id="result" align="center"></div>
-	</font>
-	
+	<section id="progress bar" class="progress_bar">
+		<ul class="progress">
+			<li id="select" class="complete">Flight Details</li>
+			<li id="upgrade">Passenger Information</li>
+			<li id="payment">Make Payment</li>
+			<li id="finish">Complete Booking</li>
+		</ul>
+	</section>
+
+	<section class="header">
+		<h1 align="center">Flight Booking</h1>
+	</section>
+
+	<section id="flight_details">
+		<div class="container">
+			<div class="well clearfix">
+				<fieldset class="well well-form">
+					<legend class="well-legend">Booking Details</legend>
+					<div class="row">
+						<div class="col-xs-2">
+							<label class="control-label" for="booking-id">ID</label>
+							<input class="form-control input-flight" type="text" name="booking-id" id="booking-id" placeholder="ID Booking" readonly/>
+						</div>
+
+						<div class="col-xs-4">
+							<label class="control-label" for="booking-date">Booking Date</label>
+
+							<div class="form-group input-group">
+								<span class="input-group-addon "><i class="fa fa-calendar"></i></span>
+								<input class="form-control input-flight" type="text" name="booking-date" id="booking-date" placeholder="Booking Date" />
+							</div>
+						</div>
+
+						<div class="col-xs-4">
+							<label class="control-label" for="booking-date">Destination</label>
+
+							<div class="form-group input-group">
+								<span class="input-group-addon "><i class="fa fa-map-o" aria-hidden="true"></i></span>
+								<input class="form-control input-flight" type="text" name="booking-date" id="booking-date" placeholder="Destination" />
+							</div>
+						</div>
+					</div>
+					<div class="row">
+						<div class="col-xs-2">
+							<label class="control-label" for="form_days">Adults</label>
+							<select class="form-control" id="form_days" name="days">
+								<option selected value=1>1</option>
+								<option value=2>2</option>
+								<option value=3>3</option>
+								<option value=4>4</option>
+							</select>
+						</div>
+
+						<div class="col-xs-2">
+							<label class="control-label" for="form_days">Children</label>
+							<select class="form-control" id="form_days" name="days">
+								<option selected value=1>1</option>
+								<option value=2>2</option>
+								<option value=3>3</option>
+								<option value=4>4</option>
+							</select>
+						</div>
+
+						<div class="col-xs-2 col-md-offset-5">
+							<label class="control-label" for="btn_next"> </label>
+							<button class="btn" id="btn_next">NEXT</button>
+						</div>
+					</div>
+				</fieldset>
+			</div>
+		</div>
+	</section>
+
+	<section id="passenger_info" hidden>
+		<div class="container">
+			<div class="well clearfix">
+				<fieldset class="well well-form">
+					<legend class="well-legend">Passenger Information</legend>
+					<div class="row">
+						<div class="col-xs-5">
+							<label class="control-label" for="name">Name</label>
+							<div class="form-group input-group">
+								<span class="input-group-addon primary"><i class="fa fa-user-o" aria-hidden="true"></i></span>
+								<input class="form-control" type="text" name="name" id="name" placeholder="Name" required/>
+							</div>
+
+							<label class="control-label" for="lastName">Last name</label>
+							<div class="form-group input-group">
+								<span class="input-group-addon primary"><i class="fa fa-user-o" aria-hidden="true"></i></span>
+								<input type="text" class="form-control" name="lastname" id="lastname" placeholder="Last Name" required>
+							</div>
+
+							<label class="control-label" for="dni">ID Number</label>
+							<div class="form-group input-group">
+								<span class="input-group-addon primary"><i class="fa fa-id-card-o"></i></span>
+								<input type="text" class="form-control" name="dni" id="dni" placeholder="ID Number" maxlength="8" minlength="8" required>
+							</div>
+						</div>
+
+						<div class="col-xs-7">
+							<label class="control-label">Choose your seat</label>
+							<div id="showPlace" align="center">Seleccione asiento</div><br>
+							<table id="spot" align="center" border="1px">
+									<tr>
+										<td>01</td>
+										<td>03</td>
+										<td>05</td>
+										<td>07</td>
+										<td>09</td>
+									</tr>
+									<tr>
+										<td>02</td>
+										<td>04</td>
+										<td>06</td>
+										<td>08</td>
+										<td>10</td>
+									</tr>
+								</table><br>
+							<div class="col-md-offset-10">
+								<label class="control-label" for="btnReservation"> </label>
+								<button class="btn" id="btn_pay">PAY</button>
+							</div>
+						</div>
+					</div>
+				</fieldset>
+			</div>
+		</div>
+	</section>
+
+	<section id="payment_details" hidden>
+		<div class="payment">
+			<div id="card-container">
+				<div class="card" id="card">
+					<div class="front">
+						<img class="chip img_card" src="https://www.bethpagefcu.com/~/media/Images/bethpage/Page-Content/CC_chip.ashx?la=en">
+						<img class="payment-card img_card" id="mastercard" src="http://www.veryicon.com/icon/png/Business/Free%20Ecommerce/mastercard.png"
+						/>
+						<img class="payment-card img_card" id="visa" src="http://www.veryicon.com/icon/png/Business/Free%20Ecommerce/visa.png">
+						<span class="payment-title span_card">Payment Details</span>
+						<form>
+							<input class="field" id="number_card" placeholder="card number" />
+							<input class="field" id="name_card" placeholder="name" />
+							<input class="field" id="date_card" placeholder="expiry" />
+						</form>
+					</div>
+
+					<!--div class="card-back">
+						<div class="black"></div>
+						<span class="sign span_card"><span id="sign" class="span_card">Test Content</span>
+						<span class="cvc-start span_card">xxxx
+								<input class="field" id="cvc" type="text" name="cvc" />
+							</span>
+						</span>
+					</div-->
+				</div>
+
+				<!--div class="confirm-payment">
+					<div id="confirm_payment" class="content_payment"><span>Thanks!<img src="https://emojipedia-us.s3.amazonaws.com/cache/4e/34/4e349487baad811746c02a09fcea0f56.png" /></span>
+						<button class="btn_pay">Pay £1440</button>
+					</div>
+				</div-->
+			</div>
+			<div>
+				<label class="control-label" for="btnReservation"> </label>
+				<button class="btn" id="btnReservation">BOOK</button>
+			</div>
+		</div>
+	</section>
+
+	<section id="ticket">
+		<section class="container-ticket">
+			<div class="row-ticket">
+			</div>
+		</section>
+	</section>
+
+
 	<script src="assets/js/jquery-3.2.1.min.js"></script>
 	<script type="text/javascript" src="assets/js/main.js"></script>
 </body>
+
 </html>
