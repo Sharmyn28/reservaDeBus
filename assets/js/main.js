@@ -47,23 +47,22 @@ class Bus{
 	
 		let newPassenger = new Passenger(name, apellido, dni, asiento);
 		this.passenger.push(newPassenger);
+		console.log(newPassenger);
+		$('#finish').addClass("complete");
 		$('#flight_details').hide();
 		$('#passenger_info').hide();
 		$('#payment_details').hide();
 		this.toHTML(newPassenger)
 		setTimeout(()=>{ this.restart(); 
 			$('#ticket').empty();
+			$('#flight_details').show();
 		}, 45000);
 	}
 
 	pay(){
 		$('#payment').addClass("complete");
-		$('#payment_details').removeAttr("hidden");
 		$('#passenger_info').hide();
-		setTimeout(()=>{ this.restart();
-			$('#finish').addClass("complete");
-			$('#flight_details').show();
-		}, 1000);
+		$('#payment_details').removeAttr("hidden");
 	}
 
 	searchPassenger(){
